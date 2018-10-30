@@ -10,7 +10,7 @@
         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/carteleraDB?serverTimezone=UTC"/>
         <property name="hibernate.connection.autocommit" value="false"/>
         <property name="hibernate.connection.username" value="root"/>
-        <property name="hibernate.connection.password" value=""/>
+        <property name="hibernate.connection.password" value="1234"/>
         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
         <property name="hibernate.connection.CharSet" value="utf8"/>
         <property name="hibernate.connection.characterEncoding" value="utf8"/>
