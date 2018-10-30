@@ -1,6 +1,7 @@
 package model;
 
 import model.DAO.UserRepository;
+import org.junit.Assert;
 import org.junit.Test;
 
 import javax.transaction.Transactional;
@@ -13,8 +14,7 @@ public class UserRepositoryTestCase {
     @Transactional
     @Test
     public void testGetByEmail(){
-
-        userRepository.getUserByEmail("juan");
+        Assert.assertNotNull(userRepository.getUserByEmail("juan"));
     }
 
 }
