@@ -6,14 +6,14 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.List;
+import java.util.ArrayList;
 
 @Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "billboard")
+public class Billboard {
 
     @Id
-    @Column(name = "role_id")
+    @Column(name = "billboard_id")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int id;
@@ -21,26 +21,25 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy="roles")
-    private List<Permission> permissions;
-
     @CreationTimestamp
     private Date created_at;
 
     @UpdateTimestamp
     private Date updated_at;
 
+    @OneToMany(mappedBy="billboard")
+    private ArrayList<Interest> interested;
+
+    @OneToMany(mappedBy="billboard")
+    private ArrayList<Publication> publications;
+
     public int getId() { return id; }
 
-    public void setId(int id) { this.id = id;    }
+    public void setId(int id) { this.id = id; }
 
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
-
-    public List<Permission> getPermissions() { return permissions; }
-
-    public void setPermissions(List<Permission> permissions) { this.permissions = permissions; }
 
     public Date getCreated_at() { return created_at; }
 
@@ -50,6 +49,12 @@ public class Role {
 
     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
 
+    public ArrayList<Interest> getInterested() { return interested; }
 
-    public Role(){  }
+    public void setInterested(ArrayList<Interest> interested) { this.interested = interested; }
+
+    public ArrayList<Publication> getPublications() { return publications; }
+
+    public void setPublications(ArrayList<Publication> publications) { this.publications = publications; }
+
 }
