@@ -1,0 +1,4 @@
+.DS_Store
+.idea
+cartelera/.idea
+cartelera/target/classes/META-INF/persistence.xml
