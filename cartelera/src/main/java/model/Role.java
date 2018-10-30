@@ -3,7 +3,7 @@ package model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "role")
@@ -18,8 +18,8 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy="role")
-    private ArrayList<Permission> permissions;
+    @ManyToMany(mappedBy="roles")
+    private List<Permission> permissions;
 
     public int getId() { return id; }
 
@@ -29,9 +29,9 @@ public class Role {
 
     public void setName(String name) { this.name = name; }
 
-    public ArrayList<Permission> getPermissions() { return permissions; }
+    public List<Permission> getPermissions() { return permissions; }
 
-    public void setPermissions(ArrayList<Permission> permissions) { this.permissions = permissions; }
+    public void setPermissions(List<Permission> permissions) { this.permissions = permissions; }
 
 
     public Role(){  }
