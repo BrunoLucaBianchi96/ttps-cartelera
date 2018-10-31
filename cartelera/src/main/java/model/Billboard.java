@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "billboard")
@@ -28,10 +29,10 @@ public class Billboard {
     private Date updated_at;
 
     @OneToMany(mappedBy="billboard")
-    private ArrayList<Interest> interested;
+    private List<Interest> interested;
 
     @OneToMany(mappedBy="billboard")
-    private ArrayList<Publication> publications;
+    private List<Publication> publications;
 
     public int getId() { return id; }
 
@@ -49,11 +50,11 @@ public class Billboard {
 
     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
 
-    public ArrayList<Interest> getInterested() { return interested; }
+    public List<Interest> getInterested() { return interested; }
 
     public void setInterested(ArrayList<Interest> interested) { this.interested = interested; }
 
-    public ArrayList<Publication> getPublications() { return publications; }
+    public List<Publication> getPublications() { return publications; }
 
     public void setPublications(ArrayList<Publication> publications) { this.publications = publications; }
 

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class UserRepository implements UserDAO {
+public class UserRepository extends GenericDAOHibernateJPA<User> implements UserDAO {
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
     private EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -24,24 +24,5 @@ public class UserRepository implements UserDAO {
     public User getUserById(int id) {
         return entityManager.find(User.class, id);
     }
-
-    @Override
-    public User update(User entity) {
-        return null;
-    }
-
-    @Override
-    public User save(User user) {
-        this.entityManager.getTransaction().begin();
-        this.entityManager.persist(user);
-        this.entityManager.getTransaction().commit();
-        return user;
-    }
-
-    @Override
-    public void delete(User user) {
-        this.entityManager.getTransaction().begin();
-        this.entityManager.remove(user);
-        this.entityManager.getTransaction().commit();
-    }
+    
 }
