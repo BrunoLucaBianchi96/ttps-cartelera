@@ -1,6 +1,7 @@
 package model;
 
 import model.DAO.UserRepository;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,19 +11,40 @@ import javax.transaction.Transactional;
 public class UserRepositoryTestCase {
 
     private UserRepository userRepository = new UserRepository();
-    @Test
-    public void testGetByEmail(){
-        Assert.assertNotNull(userRepository.getUserByEmail("email"));
+    private User user;
+
+    @After
+    public void deleteUser(){
+        if(user != null) {
+            this.userRepository.delete(user);
+        }
     }
 
     @Test
+    public void testGetByEmail(){
+        user = createUser();
+        this.userRepository.save(user);
+        Assert.assertNotNull(userRepository.getUserByEmail("email"));
+
+    }
+
+    @Test
+    public void testGetById(){
+        user = createUser();
+        this.userRepository.save(user);
+        user = userRepository.getById(user.getId());
+        Assert.assertNotNull(user);
+
+    }
+    @Test
     public void testUpdateUser(){
-        User user = createUser();
+        user = createUser();
         this.userRepository.save(user);
         user.setName("New Name");
         this.userRepository.update(user);
-        user = this.userRepository.getUserById(user.getId());
+        user = this.userRepository.getById(user.getId());
         Assert.assertEquals("New Name", user.getName());
+
     }
 
     private User createUser(){
@@ -36,12 +58,11 @@ public class UserRepositoryTestCase {
 
     @Test
     public void testSaveAndDeleteUser(){
-        User user = createUser();
+        user = createUser();
         this.userRepository.save(user);
-        Assert.assertNotNull(this.userRepository.getUserById(user.getId()));
+        Assert.assertNotNull(this.userRepository.getById(user.getId()));
         this.userRepository.delete(user);
-        Assert.assertNull(this.userRepository.getUserById(user.getId()));
-        userRepository.getUserByEmail("email");
+        Assert.assertNull(this.userRepository.getById(user.getId()));
     }
 
 }

@@ -10,6 +10,7 @@ public class UserRepository extends GenericDAOHibernateJPA<User> implements User
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
     private EntityManager entityManager = entityManagerFactory.createEntityManager();
+
     @Override
     public User getUserByEmail(String email) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
@@ -21,8 +22,7 @@ public class UserRepository extends GenericDAOHibernateJPA<User> implements User
     }
 
     @Override
-    public User getUserById(int id) {
-        return entityManager.find(User.class, id);
+    public Class<User> getPersistentClass() {
+        return User.class;
     }
-    
 }

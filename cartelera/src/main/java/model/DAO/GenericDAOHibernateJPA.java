@@ -4,10 +4,13 @@ import model.EMF;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.io.Serializable;
 
-public class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
+public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
 
-    protected Class<T> persistentClass;
+    public Class<T> persistentClass;
+
+    public abstract Class<T> getPersistentClass();
 
     @Override
     public T update(T entity) {
@@ -47,7 +50,7 @@ public class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
         try {
             tx = em.getTransaction();
             tx.begin();
-            em.remove(entity);
+            em.remove(em.contains(entity) ? entity : em.merge(entity));
             tx.commit();
         }
         catch (RuntimeException e) {
@@ -57,5 +60,14 @@ public class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
         finally {
             em.close();
         }
+    }
+
+    @Override
+    public T getById(Serializable id) {
+        EntityManager em= EMF.getEMF().createEntityManager();
+        T result = em.find(this.getPersistentClass(), id);
+        em.close();
+        return result;
+
     }
 }
