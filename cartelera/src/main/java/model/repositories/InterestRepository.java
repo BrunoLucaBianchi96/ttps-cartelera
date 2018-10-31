@@ -13,9 +13,7 @@ public class InterestRepository extends GenericDAOHibernateJPA<Interest> impleme
 
 
     @Override
-    public Class<Interest> getPersistentClass() {
-        return Interest.class;
-    }
+    public Class<Interest> getPersistentClass() { return Interest.class; }
 
     @Override
     public List<Interest> getAllInterestsForUserId(Integer id) {
