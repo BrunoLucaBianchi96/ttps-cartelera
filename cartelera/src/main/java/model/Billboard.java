@@ -14,7 +14,7 @@ import java.util.List;
 public class Billboard {
 
     @Id
-    @Column(name = "billboard_id")
+    @Column(name = "id")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int id;

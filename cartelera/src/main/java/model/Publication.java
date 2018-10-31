@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "publication")
 public class Publication {
     @Id
-    @Column(name = "publication_id")
+    @Column(name = "id")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int id;

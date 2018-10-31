@@ -16,14 +16,6 @@ public class UserTestCase {
     private EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
 
-    @Test
-    public void test() {
-        User user = new User();
-        user.setName("Juan");
-        Assert.assertEquals("Juan", user.getName());
-    }
-
-
     @Before
     public void initTest() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
@@ -31,13 +23,10 @@ public class UserTestCase {
     }
 
     @Test
-    @Transactional
-    public void testPersistence() {
+    public void test() {
         User user = new User();
-        user.setName("Nice");
-        this.entityManager.getTransaction().begin();
-        this.entityManager.persist(user);
-        this.entityManager.getTransaction().commit();
-        this.entityManagerFactory.close();
+        user.setName("Juan");
+        Assert.assertEquals("Juan", user.getName());
     }
+
 }

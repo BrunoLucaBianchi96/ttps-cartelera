@@ -13,7 +13,7 @@ import java.util.List;
 public class Role {
 
     @Id
-    @Column(name = "role_id")
+    @Column(name = "id")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int id;

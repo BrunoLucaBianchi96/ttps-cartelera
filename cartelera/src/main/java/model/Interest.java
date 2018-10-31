@@ -13,7 +13,7 @@ import java.util.List;
 public class Interest {
 
     @Id
-    @Column(name = "interest_id")
+    @Column(name = "id")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int id;
@@ -27,7 +27,7 @@ public class Interest {
     @OneToOne(optional = false)
     private User user;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private Billboard billboard;
 
 

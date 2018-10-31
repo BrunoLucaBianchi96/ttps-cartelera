@@ -12,7 +12,7 @@ import java.sql.Date;
 public class User {
 
     @Id
-    @Column(name = "user_id")
+    @Column(name = "id")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int id;
