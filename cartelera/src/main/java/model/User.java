@@ -2,8 +2,10 @@ package model;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "user")
@@ -29,6 +31,13 @@ public class User {
 
     @Column(name = "notification_type")
     private String notificationType;
+
+
+    @CreationTimestamp
+    private Date created_at;
+
+    @UpdateTimestamp
+    private Date updated_at;
 
     public String getLastName() {return lastName;}
 
@@ -60,5 +69,17 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Date getCreated_at() { return created_at; }
+
+    public void setCreated_at(Date created_at) { this.created_at = created_at; }
+
+    public Date getUpdated_at() { return updated_at; }
+
+    public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
+
+    public User(){
+        
     }
 }

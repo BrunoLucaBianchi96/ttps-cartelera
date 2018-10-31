@@ -9,20 +9,14 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "interest")
+public class Interest {
 
     @Id
-    @Column(name = "role_id")
+    @Column(name = "interest_id")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    @ManyToMany(mappedBy="roles")
-    private List<Permission> permissions;
 
     @CreationTimestamp
     private Date created_at;
@@ -30,17 +24,16 @@ public class Role {
     @UpdateTimestamp
     private Date updated_at;
 
+    @OneToOne(optional = false)
+    private User user;
+
+    @OneToOne(optional = false)
+    private Billboard billboard;
+
+
     public int getId() { return id; }
 
-    public void setId(int id) { this.id = id;    }
-
-    public String getName() { return name; }
-
-    public void setName(String name) { this.name = name; }
-
-    public List<Permission> getPermissions() { return permissions; }
-
-    public void setPermissions(List<Permission> permissions) { this.permissions = permissions; }
+    public void setId(int id) { this.id = id; }
 
     public Date getCreated_at() { return created_at; }
 
@@ -50,6 +43,16 @@ public class Role {
 
     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
 
+    public User getUser() { return user; }
 
-    public Role(){  }
+    public void setUser(User user) { this.user = user; }
+
+    public Billboard getBillboard() { return billboard; }
+
+    public void setBillboard(Billboard billboard) { this.billboard = billboard; }
+
+    public Interest(){
+
+    }
+
 }
