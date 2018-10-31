@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <list default="true" id="dae65ab2-b853-423e-b7a0-2cd3d3b18866" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/model/DAO/InterestDAO.java" afterDir="false" />
@@ -31,6 +32,9 @@
       <change beforePath="$PROJECT_DIR$/target/test-classes/model/UserRepositoryTestCase.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/model/UserTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/model/UserTestCase.class" afterDir="false" />
     </list>
+=======
+    <list default="true" id="dae65ab2-b853-423e-b7a0-2cd3d3b18866" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
 =======
     <list default="true" id="dae65ab2-b853-423e-b7a0-2cd3d3b18866" name="Default Changelist" comment="" />
 >>>>>>> Stashed changes
@@ -151,6 +155,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/model/repositories/InterestRepository.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <state relative-caret-position="408">
               <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
@@ -158,10 +163,15 @@
                 <element signature="e#308#309#0" expanded="true" />
                 <element signature="e#344#345#0" expanded="true" />
 =======
+=======
+>>>>>>> Stashed changes
             <state relative-caret-position="136">
               <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
               </folding>
             </state>
@@ -169,6 +179,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Interest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -212,6 +223,56 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
               <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Billboard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Role.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+>>>>>>> Stashed changes
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Interest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/resources/UserResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+=======
+      <file pinned="false" current-in-tab="false">
+<<<<<<< Updated upstream
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+>>>>>>> Stashed changes
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Publication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -226,32 +287,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
 <<<<<<< Updated upstream
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/resources/UserResource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-=======
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
->>>>>>> Stashed changes
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
 <<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/src/main/java/model/DAO/GenericDAOHibernateJPA.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
               <caret line="60" selection-start-line="60" selection-end-line="60" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -267,10 +315,41 @@
       </file>
       <file pinned="false" current-in-tab="false">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Permission.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/DAO/UserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+>>>>>>> Stashed changes
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Permission.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< Updated upstream
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Publication.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+            <state relative-caret-position="79">
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+=======
+            <state relative-caret-position="1173">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -285,27 +364,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Publication.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Role.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
-            <state relative-caret-position="79">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="204">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
 =======
             <state relative-caret-position="1173">
               <caret line="69" selection-start-line="69" selection-end-line="69" />
 >>>>>>> Stashed changes
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Role.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -497,6 +564,7 @@
               <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="repositories" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< Updated upstream
             <path>
               <item name="cartelera" type="b2602c69:ProjectViewProjectNode" />
               <item name="cartelera" type="462c0819:PsiDirectoryNode" />
@@ -504,6 +572,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> Stashed changes
           </expand>
           <select />
         </subPane>
@@ -764,7 +834,11 @@
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="20187000" />
+=======
+    <option name="totallyTimeSpent" value="16137000" />
+>>>>>>> Stashed changes
 =======
     <option name="totallyTimeSpent" value="16137000" />
 >>>>>>> Stashed changes
@@ -773,7 +847,11 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23880596" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24413647" />
+>>>>>>> Stashed changes
 =======
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24413647" />
 >>>>>>> Stashed changes
@@ -892,15 +970,21 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cartelera.iml" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/ContextConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
 =======
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Role.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
@@ -929,6 +1013,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/model/User.class">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         <state relative-caret-position="-510">
           <folding>
@@ -972,6 +1057,10 @@
           <folding>
             <element signature="e#1511#1512#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="340">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -984,6 +1073,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/DAO/UserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         <state relative-caret-position="102">
           <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
@@ -998,6 +1088,9 @@
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+=======
+        <state relative-caret-position="-510" />
+>>>>>>> Stashed changes
 =======
         <state relative-caret-position="-510" />
 >>>>>>> Stashed changes
@@ -1047,11 +1140,16 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Permission.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <state relative-caret-position="204">
           <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="408">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+>>>>>>> Stashed changes
 =======
         <state relative-caret-position="408">
           <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
@@ -1062,11 +1160,16 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Publication.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <state relative-caret-position="79">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="306">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+>>>>>>> Stashed changes
 =======
         <state relative-caret-position="306">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
@@ -1097,6 +1200,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Billboard.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="153">
           <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
         </state>
@@ -1123,6 +1227,12 @@
           <folding>
             <element signature="imports" expanded="true" />
 >>>>>>> Stashed changes
+=======
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -1130,9 +1240,12 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/DAO/GenericDAOHibernateJPA.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <state relative-caret-position="185">
           <caret line="60" selection-start-line="60" selection-end-line="60" />
 =======
+=======
+>>>>>>> Stashed changes
         <state relative-caret-position="1173">
           <caret line="69" selection-start-line="69" selection-end-line="69" />
 >>>>>>> Stashed changes
@@ -1142,6 +1255,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/test/model/repositories/InterestRepositoryTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1155,6 +1269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/resources/UserResource.java">
 =======
+=======
+>>>>>>> Stashed changes
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11-sources.jar!/org/junit/runners/model/FrameworkMethod.java" />
     <entry file="file://$PROJECT_DIR$/src/main/test/model/UserRepositoryTestCase.java">
 >>>>>>> Stashed changes
