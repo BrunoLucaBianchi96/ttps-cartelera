@@ -8,6 +8,7 @@ public interface GenericDAO<T> {
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
     EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-    GenericDAO update(T entity);
-
+    T update(T entity);
+    T save(T entity);
+    void delete(T entity);
 }
