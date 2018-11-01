@@ -1,0 +1,46 @@
+package model;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "comment")
+public class Comment {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(generator = "incrementor")
+    @GenericGenerator(name = "incrementor", strategy = "increment")
+    private int id;
+
+    @Column(name = "text")
+    private String text;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Publication publication;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Publication getPublication() {
+        return publication;
+    }
+
+    public void setPublication(Publication publication) {
+        this.publication = publication;
+    }
+}

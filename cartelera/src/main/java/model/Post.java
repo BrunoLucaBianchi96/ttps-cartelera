@@ -3,6 +3,7 @@ package model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "post")
@@ -24,6 +25,9 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Billboard billboard;
+
+    @OneToMany(mappedBy = "publication")
+    public List<Comment> comments;
 
     public int getId() {
         return id;
