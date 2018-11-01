@@ -20,6 +20,17 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
 
+    @OneToOne( fetch = FetchType.LAZY)
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public int getId() {
         return id;
     }

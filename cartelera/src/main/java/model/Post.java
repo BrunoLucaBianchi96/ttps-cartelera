@@ -29,6 +29,24 @@ public class Post {
     @OneToMany(mappedBy = "post")
     public List<Comment> comments;
 
+    public Billboard getBillboard() {
+        return billboard;
+    }
+
+    public void setBillboard(Billboard billboard) {
+        this.billboard = billboard;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+
+
     public int getId() {
         return id;
     }

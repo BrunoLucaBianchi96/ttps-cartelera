@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -31,7 +32,6 @@ public class User {
 
     @Column(name = "notification_type")
     private String notificationType;
-
 
     @CreationTimestamp
     private Date created_at;
@@ -79,7 +79,5 @@ public class User {
 
     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
 
-    public User(){
-        
-    }
+    public User(){}
 }
