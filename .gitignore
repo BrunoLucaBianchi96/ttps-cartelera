@@ -1,2 +1,3 @@
 cartelera/src/main/resources/META-INF/persistence.xml
 cartelera/target/classes/META-INF/persistence.xml 
+.idea/*
