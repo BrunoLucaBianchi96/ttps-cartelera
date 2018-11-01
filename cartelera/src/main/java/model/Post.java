@@ -26,7 +26,7 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     private Billboard billboard;
 
-    @OneToMany(mappedBy = "publication")
+    @OneToMany(mappedBy = "post")
     public List<Comment> comments;
 
     public int getId() {
