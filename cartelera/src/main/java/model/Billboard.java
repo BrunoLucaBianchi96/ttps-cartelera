@@ -32,7 +32,7 @@ public class Billboard {
     private List<Interest> interested;
 
     @OneToMany(mappedBy="billboard")
-    private List<Publication> publications;
+    private List<Post> posts;
 
     public int getId() { return id; }
 
@@ -54,8 +54,8 @@ public class Billboard {
 
     public void setInterested(ArrayList<Interest> interested) { this.interested = interested; }
 
-    public List<Publication> getPublications() { return publications; }
+    public List<Post> getPosts() { return posts; }
 
-    public void setPublications(ArrayList<Publication> publications) { this.publications = publications; }
+    public void setPosts(ArrayList<Post> posts) { this.posts = posts; }
 
 }
