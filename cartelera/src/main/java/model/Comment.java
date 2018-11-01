@@ -18,7 +18,7 @@ public class Comment {
     private String text;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Publication publication;
+    private Post publication;
 
     public int getId() {
         return id;
@@ -36,11 +36,11 @@ public class Comment {
         this.text = text;
     }
 
-    public Publication getPublication() {
+    public Post getPublication() {
         return publication;
     }
 
-    public void setPublication(Publication publication) {
+    public void setPublication(Post publication) {
         this.publication = publication;
     }
 }
