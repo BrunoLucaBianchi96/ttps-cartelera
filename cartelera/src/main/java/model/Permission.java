@@ -21,8 +21,11 @@ public class Permission {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "permission_role",
+            joinColumns = @JoinColumn(name = "permissions_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
     private List<Role> roles;
 
     public List<Role> getRoles() {
