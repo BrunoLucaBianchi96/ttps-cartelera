@@ -26,8 +26,15 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     private Billboard billboard;
 
+    @OneToOne( fetch = FetchType.LAZY)
+    private User user;
+
     @OneToMany(mappedBy = "post")
     public List<Comment> comments;
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 
     public Billboard getBillboard() {
         return billboard;
@@ -44,8 +51,6 @@ public class Post {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-
-
 
     public int getId() {
         return id;

@@ -34,6 +34,9 @@ public class Billboard {
     @OneToMany(mappedBy="billboard")
     private List<Post> posts;
 
+    @ManyToMany(mappedBy="billboards")
+    private List<User> users;
+
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
@@ -58,4 +61,11 @@ public class Billboard {
 
     public void setPosts(ArrayList<Post> posts) { this.posts = posts; }
 
+    public void setInterested(List<Interest> interested) { this.interested = interested; }
+
+    public void setPosts(List<Post> posts) { this.posts = posts; }
+
+    public List<User> getUsers() { return users; }
+
+    public void setUsers(List<User> users) { this.users = users; }
 }

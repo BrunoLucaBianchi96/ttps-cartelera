@@ -24,6 +24,9 @@ public class Role {
     @ManyToMany(mappedBy="roles")
     private List<Permission> permissions;
 
+    @ManyToMany(mappedBy="roles")
+    private List<User> users;
+
     @CreationTimestamp
     private Date created_at;
 
@@ -50,6 +53,9 @@ public class Role {
 
     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
 
+    public List<User> getUsers() { return users; }
+
+    public void setUsers(List<User> users) { this.users = users; }
 
     public Role(){  }
 }

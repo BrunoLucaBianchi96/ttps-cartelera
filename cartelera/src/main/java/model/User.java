@@ -33,6 +33,14 @@ public class User {
     @Column(name = "notification_type")
     private String notificationType;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    private List<Role> roles;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billboard_id")
+    private List<Billboard> billboards;
+
     @CreationTimestamp
     private Date created_at;
 
@@ -78,6 +86,14 @@ public class User {
     public Date getUpdated_at() { return updated_at; }
 
     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
+
+    public List<Role> getRoles() { return roles; }
+
+    public void setRoles(List<Role> roles) { this.roles = roles; }
+
+    public List<Billboard> getBillboards() { return billboards; }
+
+    public void setBillboards(List<Billboard> billboards) { this.billboards = billboards; }
 
     public User(){}
 }
