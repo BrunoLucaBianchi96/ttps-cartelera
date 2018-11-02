@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,7 +21,7 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy="roles")
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Permission> permissions;
 
     @ManyToMany(mappedBy="roles")

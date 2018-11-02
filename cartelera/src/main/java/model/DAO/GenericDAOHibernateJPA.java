@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.transaction.Transactional;
 import java.io.Serializable;
 
 public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
@@ -21,6 +22,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     }
 
     @Override
+    @Transactional
     public T update(T entity) {
         EntityManager em= EMF.getEMF().createEntityManager();
         EntityTransaction etx= em.getTransaction();
@@ -32,6 +34,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     }
 
     @Override
+    @Transactional
     public T save(T entity) {
         EntityManager em = EMF.getEMF().createEntityManager();
         EntityTransaction tx = null;
@@ -52,6 +55,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     }
 
     @Override
+    @Transactional
     public void delete(T entity) {
         EntityManager em = EMF.getEMF().createEntityManager();
         EntityTransaction tx = null;
@@ -71,6 +75,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     }
 
     @Override
+    @Transactional
     public T getById(Serializable id) {
         EntityManager em= EMF.getEMF().createEntityManager();
         T result = em.find(this.getPersistentClass(), id);

@@ -39,16 +39,17 @@ public class InterestRepositoryTestCase {
 
     @Test
     public void testUpdateInterest(){
-
+        User user = new User();
+        user.setName("Martin");
+        userRepository.save(user);
 
         interest = createInterest();
         this.interestRepository.save(interest);
-
-
-
+        interest.setUser(user);
         this.interestRepository.update(interest);
+
         interest = this.interestRepository.getById(interest.getId());
-        Assert.assertEquals( "e", interest.getUser());
+        Assert.assertEquals( user.getName(), interest.getUser().getName());
     }
 
     private Interest createInterest(){

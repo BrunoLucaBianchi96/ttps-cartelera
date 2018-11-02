@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,11 +21,7 @@ public class Permission {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "permission_role",
-            joinColumns = @JoinColumn(name = "permissions_id"),
-            inverseJoinColumns = @JoinColumn(name = "roles_id")
-    )
+    @ManyToMany(mappedBy = "permissions")
     private List<Role> roles;
 
     public List<Role> getRoles() {
