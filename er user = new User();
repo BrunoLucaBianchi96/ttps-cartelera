@@ -1,0 +1,128 @@
+[1mdiff --git a/cartelera/src/main/java/model/Permission.java b/cartelera/src/main/java/model/Permission.java[m
+[1mindex e7bcac5..ece20f9 100644[m
+[1m--- a/cartelera/src/main/java/model/Permission.java[m
+[1m+++ b/cartelera/src/main/java/model/Permission.java[m
+[36m@@ -21,17 +21,6 @@[m [mpublic class Permission {[m
+     @Column(name = "name")[m
+     private String name;[m
+ [m
+[31m-    @ManyToMany(mappedBy = "permissions")[m
+[31m-    private List<Role> roles;[m
+[31m-[m
+[31m-    public List<Role> getRoles() {[m
+[31m-        return roles;[m
+[31m-    }[m
+[31m-[m
+[31m-    public void setRoles(List<Role> roles) {[m
+[31m-        this.roles = roles;[m
+[31m-    }[m
+[31m-[m
+     @CreationTimestamp[m
+     private Date created_at;[m
+ [m
+[1mdiff --git a/cartelera/src/main/java/model/Role.java b/cartelera/src/main/java/model/Role.java[m
+[1mindex 111c94d..5d06654 100644[m
+[1m--- a/cartelera/src/main/java/model/Role.java[m
+[1m+++ b/cartelera/src/main/java/model/Role.java[m
+[36m@@ -24,9 +24,6 @@[m [mpublic class Role {[m
+     @ManyToMany(fetch = FetchType.LAZY)[m
+     private List<Permission> permissions;[m
+ [m
+[31m-    @ManyToMany(mappedBy="roles")[m
+[31m-    private List<User> users;[m
+[31m-[m
+     @CreationTimestamp[m
+     private Date created_at;[m
+ [m
+[36m@@ -53,9 +50,5 @@[m [mpublic class Role {[m
+ [m
+     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }[m
+ [m
+[31m-    public List<User> getUsers() { return users; }[m
+[31m-[m
+[31m-    public void setUsers(List<User> users) { this.users = users; }[m
+[31m-[m
+[31m-    public Role(){  }[m
+[32m+[m[32m    public Role(){}[m
+ }[m
+[1mdiff --git a/cartelera/src/main/java/model/User.java b/cartelera/src/main/java/model/User.java[m
+[1mindex fbe4426..335155c 100644[m
+[1m--- a/cartelera/src/main/java/model/User.java[m
+[1m+++ b/cartelera/src/main/java/model/User.java[m
+[36m@@ -34,7 +34,6 @@[m [mpublic class User {[m
+     private String notificationType;[m
+ [m
+     @ManyToMany(fetch = FetchType.LAZY)[m
+[31m-    @JoinColumn(name = "role_id")[m
+     private List<Role> roles;[m
+ [m
+     @ManyToMany(fetch = FetchType.LAZY)[m
+[1mdiff --git a/cartelera/src/main/test/IntegrationTest.java b/cartelera/src/main/test/IntegrationTest.java[m
+[1mindex b3106b5..f6e1a00 100644[m
+[1m--- a/cartelera/src/main/test/IntegrationTest.java[m
+[1m+++ b/cartelera/src/main/test/IntegrationTest.java[m
+[36m@@ -1,10 +1,13 @@[m
+ import model.Interest;[m
+ import model.Permission;[m
+[32m+[m[32mimport model.Role;[m
+ import model.User;[m
+ import model.repositories.*;[m
+ import org.junit.Test;[m
+ [m
+ import javax.transaction.Transactional;[m
+[32m+[m[32mimport java.util.Arrays;[m
+[32m+[m[32mimport java.util.Collections;[m
+ import java.util.Date;[m
+ [m
+ [m
+[36m@@ -32,7 +35,13 @@[m [mpublic class IntegrationTest {[m
+ [m
+         Permission permission = new Permission();[m
+         permission.setCreated_at( new Date());[m
+[32m+[m[32m        permission.setName("permission name");[m
+[32m+[m[32m        permissionRepository.save(permission);[m
+ [m
+[32m+[m[32m        Role role = new Role();[m
+[32m+[m[32m        role.setName("Test role");[m
+[32m+[m[32m        role.setPermissions(Collections.singletonList(permission));[m
+[32m+[m[32m        roleRepository.save(role);[m
+ [m
+ [m
+     }[m
+[1mdiff --git a/cartelera/src/main/test/model/repositories/PermissionRepositoryTestCase.java b/cartelera/src/main/test/model/repositories/PermissionRepositoryTestCase.java[m
+[1mindex dca66bc..79ae943 100644[m
+[1m--- a/cartelera/src/main/test/model/repositories/PermissionRepositoryTestCase.java[m
+[1m+++ b/cartelera/src/main/test/model/repositories/PermissionRepositoryTestCase.java[m
+[36m@@ -35,7 +35,7 @@[m [mpublic class PermissionRepositoryTestCase {[m
+         List<Role> list = Arrays.asList(role);[m
+         this.roleRepository.save(role);[m
+         this.permission = new Permission();[m
+[31m-        permission.setRoles(list);[m
+[32m+[m[32m        //permission.setRoles(list);[m
+         permission.setName("permission name test");[m
+     }[m
+ [m
+[36m@@ -62,7 +62,7 @@[m [mpublic class PermissionRepositoryTestCase {[m
+         permissionRepository.save(permission);[m
+         Assert.assertNotNull(this.permissionRepository.getById(permission.getId()));[m
+         this.permissionRepository.delete(permission);[m
+[31m-        this.roleRepository.delete(permission.getRoles().get(0));[m
+[32m+[m[32m        //this.roleRepository.delete(permission.getRoles().get(0));[m
+         Assert.assertNull(this.permissionRepository.getById(permission.getId()));[m
+         //We create the permission again so we can delete it later in the @After :)[m
+         this.createPermission();[m
+[1mdiff --git a/cartelera/target/classes/model/Permission.class b/cartelera/target/classes/model/Permission.class[m
+[1mindex 46345fc..c166f42 100644[m
+Binary files a/cartelera/target/classes/model/Permission.class and b/cartelera/target/classes/model/Permission.class differ
+[1mdiff --git a/cartelera/target/classes/model/Role.class b/cartelera/target/classes/model/Role.class[m
+[1mindex 7c40cdb..80e4db3 100644[m
+Binary files a/cartelera/target/classes/model/Role.class and b/cartelera/target/classes/model/Role.class differ
+[1mdiff --git a/cartelera/target/classes/model/User.class b/cartelera/target/classes/model/User.class[m
+[1mindex fdaa49c..0eb0d4f 100644[m
+Binary files a/cartelera/target/classes/model/User.class and b/cartelera/target/classes/model/User.class differ
+[1mdiff --git a/cartelera/target/test-classes/IntegrationTest.class b/cartelera/target/test-classes/IntegrationTest.class[m
+[1mindex 094e3d6..bd2ae2c 100644[m
+Binary files a/cartelera/target/test-classes/IntegrationTest.class and b/cartelera/target/test-classes/IntegrationTest.class differ
+[1mdiff --git a/cartelera/target/test-classes/model/repositories/PermissionRepositoryTestCase.class b/cartelera/target/test-classes/model/repositories/PermissionRepositoryTestCase.class[m
+[1mindex da0b4a0..3063121 100644[m
+Binary files a/cartelera/target/test-classes/model/repositories/PermissionRepositoryTestCase.class and b/cartelera/target/test-classes/model/repositories/PermissionRepositoryTestCase.class differ

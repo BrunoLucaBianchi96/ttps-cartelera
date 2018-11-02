@@ -6,7 +6,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -55,11 +54,7 @@ public class Billboard {
 
     public List<Interest> getInterested() { return interested; }
 
-    public void setInterested(ArrayList<Interest> interested) { this.interested = interested; }
-
     public List<Post> getPosts() { return posts; }
-
-    public void setPosts(ArrayList<Post> posts) { this.posts = posts; }
 
     public void setInterested(List<Interest> interested) { this.interested = interested; }
 
