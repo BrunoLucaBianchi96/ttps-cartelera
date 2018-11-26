@@ -1,0 +1,58 @@
+-------------------------------------------------------------------------------
+Test set: model.repositories.PermissionRepositoryTestCase
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 6.057 s <<< FAILURE! - in model.repositories.PermissionRepositoryTestCase
+testGetById(model.repositories.PermissionRepositoryTestCase)  Time elapsed: 2.005 s  <<< ERROR!
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+
+testSaveAndDeletePermission(model.repositories.PermissionRepositoryTestCase)  Time elapsed: 2.024 s  <<< ERROR!
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+
+testUpdateComment(model.repositories.PermissionRepositoryTestCase)  Time elapsed: 2.025 s  <<< ERROR!
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at model.repositories.PermissionRepositoryTestCase.createPermission(PermissionRepositoryTestCase.java:36)
+

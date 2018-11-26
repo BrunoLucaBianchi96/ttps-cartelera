@@ -1,0 +1,58 @@
+-------------------------------------------------------------------------------
+Test set: model.repositories.InterestRepositoryTestCase
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 6.066 s <<< FAILURE! - in model.repositories.InterestRepositoryTestCase
+testSaveAndDeleteInterest(model.repositories.InterestRepositoryTestCase)  Time elapsed: 0.001 s  <<< ERROR!
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+
+testGetById(model.repositories.InterestRepositoryTestCase)  Time elapsed: 0.001 s  <<< ERROR!
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+
+testUpdateInterest(model.repositories.InterestRepositoryTestCase)  Time elapsed: 0.001 s  <<< ERROR!
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: 
+Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at model.repositories.InterestRepositoryTestCase.<init>(InterestRepositoryTestCase.java:19)
+
