@@ -20,8 +20,8 @@ import java.util.Properties;
 public class PersistenceConfig {
 
 	private static final String MODEL_PACKAGE = "ttps.spring.model";
-	
-	@Bean 
+
+	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource());
@@ -29,27 +29,27 @@ public class PersistenceConfig {
 		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
 		emf.setJpaVendorAdapter(jpaVendorAdapter);
 		emf.setJpaProperties(additionalProperties());
-		return emf;		
+		return emf;
 	}
-		
+
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setUsername("root");
-		driverManagerDataSource.setPassword("");
+		driverManagerDataSource.setPassword("1234");
 		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/carteleraDB?serverTimezone=UTC");
 		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return driverManagerDataSource;
 	}
-	
+
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
 		JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
 		jpaTransactionManager.setEntityManagerFactory(emf);
 		return jpaTransactionManager;
 	}
-	
-	
+
+
 	private Properties additionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.hbm2ddl.auto", "create");
@@ -57,5 +57,5 @@ public class PersistenceConfig {
 		properties.setProperty("hibernate.default_schema", "carteleraDB");
 		return properties;
 	}
-		
+
 }
