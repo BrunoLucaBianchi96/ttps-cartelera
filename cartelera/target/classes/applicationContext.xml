@@ -11,7 +11,12 @@
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
     <bean id="helloWorldService" class="model.HelloWorldService">
+<<<<<<< HEAD
         <property name="name" value="July3p"></property>
     </bean>
         
+=======
+        <property name="name" value="hola como estas"/>
+    </bean>
+>>>>>>> 853bf2de38f29a885d97e1a2a31b24d2d8258054
 </beans>
