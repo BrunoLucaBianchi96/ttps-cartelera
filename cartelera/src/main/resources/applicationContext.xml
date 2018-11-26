@@ -10,5 +10,8 @@
     <context:annotation-config></context:annotation-config>
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
-    <bean id="helloWorldService" class="resources.HelloWorldService"/>
+    <bean id="helloWorldService" class="model.HelloWorldService">
+        <property name="name" value="July3p"></property>
+    </bean>
+        
 </beans>

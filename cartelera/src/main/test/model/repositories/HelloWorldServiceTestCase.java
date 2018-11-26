@@ -18,8 +18,8 @@ public class HelloWorldServiceTestCase {
     @Test
     public void test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        //HelloWorldService service = (HelloWorldService) context.getBean("helloWorldService");
-        String message = helloWorldService.sayHello();
+        HelloWorldService service = (HelloWorldService) context.getBean("helloWorldService");
+        String message = service.sayHello();
         System.out.println(message);
 
     }
