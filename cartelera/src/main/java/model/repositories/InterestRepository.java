@@ -2,9 +2,15 @@ package model.repositories;
 
 import model.DAO.GenericDAOHibernateJPA;
 import model.Interest;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Repository
+@PersistenceContext
+@Transactional
 public class InterestRepository extends GenericDAOHibernateJPA<Interest> {
 
 

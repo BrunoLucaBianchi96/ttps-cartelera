@@ -3,11 +3,17 @@ package model.repositories;
 import model.DAO.GenericDAOHibernateJPA;
 import model.DAO.UserDAO;
 import model.User;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
+@Repository
+@PersistenceContext
+@Transactional
 public class UserRepository extends GenericDAOHibernateJPA<User> implements UserDAO {
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");

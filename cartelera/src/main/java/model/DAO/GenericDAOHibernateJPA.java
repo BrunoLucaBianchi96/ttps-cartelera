@@ -1,25 +1,35 @@
 package model.DAO;
 
 import model.EMF;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.io.Serializable;
 
+@Transactional
 public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
 
     public Class<T> persistentClass;
 
-    public abstract Class<T> getPersistentClass();
+    @PersistenceContext
+    private EntityManagerFactory emf;
 
-    public EntityManager getEntityManager(){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+    private EntityManager entityManager;
+
+    public void setEntityManager(EntityManager em){
+        this.entityManager = em;
+    }
+
+    @PersistenceContext
+    public EntityManager getEntityManager() {
+
         return entityManager;
     }
+
+    public abstract Class<T> getPersistentClass();
 
     @Override
     @Transactional
@@ -36,7 +46,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     @Override
     @Transactional
     public T save(T entity) {
-        EntityManager em = EMF.getEMF().createEntityManager();
+        EntityManager em = this.getEntityManager();
         EntityTransaction tx = null;
         try {
             tx = em.getTransaction();

@@ -11,6 +11,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -19,7 +20,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class PersistenceConfig {
 
-	private static final String MODEL_PACKAGE = "ttps.spring.model";
+	private static final String MODEL_PACKAGE = "spring.model";
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -49,6 +50,10 @@ public class PersistenceConfig {
 		return jpaTransactionManager;
 	}
 
+	@Bean
+	public EntityManager entityManager(EntityManagerFactory emf){
+		return emf.createEntityManager();
+	}
 
 	private Properties additionalProperties() {
 		Properties properties = new Properties();
