@@ -11,7 +11,7 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "spring")
+@ComponentScan
 public class AppConfig implements WebMvcConfigurer {
 
 	@Override
