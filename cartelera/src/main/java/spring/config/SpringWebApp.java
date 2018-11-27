@@ -25,7 +25,8 @@ public class SpringWebApp implements WebApplicationInitializer {
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");
 		dispatcher.addMapping("/hello");
-		
+
+
 	}
 
 }
