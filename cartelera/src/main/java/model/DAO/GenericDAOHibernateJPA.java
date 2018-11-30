@@ -12,85 +12,51 @@ import java.io.Serializable;
 @Transactional
 public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
 
-    public Class<T> persistentClass;
+    public Class<T> getPersistentClass() {
+        return persistentClass;
+    }
 
-    @PersistenceContext
-    private EntityManagerFactory emf;
+    public Class<T> persistentClass;
 
     private EntityManager entityManager;
 
+    @PersistenceContext
     public void setEntityManager(EntityManager em){
         this.entityManager = em;
     }
 
-    @PersistenceContext
     public EntityManager getEntityManager() {
-
         return entityManager;
     }
-
-    public abstract Class<T> getPersistentClass();
 
     @Override
     @Transactional
     public T update(T entity) {
-        EntityManager em= EMF.getEMF().createEntityManager();
-        EntityTransaction etx= em.getTransaction();
-        etx.begin();
+        EntityManager em= this.getEntityManager();
         entity = em.merge(entity);
-        etx.commit();
-        em.close();
         return entity;
     }
 
     @Override
     @Transactional
     public T save(T entity) {
-        EntityManager em = this.getEntityManager();
-        EntityTransaction tx = null;
-        try {
-            tx = em.getTransaction();
-            tx.begin();
-            em.persist(entity);
-            tx.commit();
-        }
-        catch (RuntimeException e) {
-            if ( tx != null && tx.isActive() ) tx.rollback();
-            throw e; // escribir en un log o mostrar un mensaje
-        }
-        finally {
-            em.close();
-        }
+        EntityManager em= this.getEntityManager();
+        this.getEntityManager().persist(entity);
         return entity;
     }
 
     @Override
     @Transactional
     public void delete(T entity) {
-        EntityManager em = EMF.getEMF().createEntityManager();
-        EntityTransaction tx = null;
-        try {
-            tx = em.getTransaction();
-            tx.begin();
-            em.remove(em.contains(entity) ? entity : em.merge(entity));
-            tx.commit();
-        }
-        catch (RuntimeException e) {
-            if ( tx != null && tx.isActive() ) tx.rollback();
-            throw e; // escribir en un log o mostrar un mensaje
-        }
-        finally {
-            em.close();
-        }
+        EntityManager em = this.getEntityManager();
+        this.getEntityManager().remove(entity);
     }
 
     @Override
     @Transactional
     public T getById(Serializable id) {
-        EntityManager em= EMF.getEMF().createEntityManager();
+        EntityManager em=  this.getEntityManager();
         T result = em.find(this.getPersistentClass(), id);
-        em.close();
         return result;
-
     }
 }

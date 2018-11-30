@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-@PersistenceContext
 @Transactional
 public class PermissionRepository extends GenericDAOHibernateJPA<Permission> {
 

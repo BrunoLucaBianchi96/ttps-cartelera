@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 import java.io.Serializable;
 
 public interface GenericDAO<T> {
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
+   // EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
 
     T update(T entity);
     T save(T entity);

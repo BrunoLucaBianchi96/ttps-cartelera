@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-@PersistenceContext
 @Transactional
 public class CommentRepository extends GenericDAOHibernateJPA<Comment> {
     @Override

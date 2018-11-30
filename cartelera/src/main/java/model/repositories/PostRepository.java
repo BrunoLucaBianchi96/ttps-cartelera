@@ -12,7 +12,6 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-@PersistenceContext
 @Transactional
 public class PostRepository extends GenericDAOHibernateJPA<Post> {
 

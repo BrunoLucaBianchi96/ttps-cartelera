@@ -12,19 +12,14 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Repository
-@PersistenceContext
 @Transactional
 public class UserRepository extends GenericDAOHibernateJPA<User> implements UserDAO {
 
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
-    private EntityManager entityManager = entityManagerFactory.createEntityManager();
+    public UserRepository(){}
 
     @Override
     public User getUserByEmail(String email) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.hibernate.cartelera.jpa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        return (User) entityManager.createNativeQuery("SELECT * FROM user WHERE email = :email ",User.class)
+        return (User) this.getEntityManager().createNativeQuery("SELECT * FROM user WHERE email = :email ",User.class)
                 .setParameter("email", email)
                 .getSingleResult();
     }

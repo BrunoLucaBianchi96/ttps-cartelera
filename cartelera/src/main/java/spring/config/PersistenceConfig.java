@@ -20,7 +20,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class PersistenceConfig {
 
-	private static final String MODEL_PACKAGE = "spring.model";
+	private static final String MODEL_PACKAGE = "model";
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -38,7 +38,7 @@ public class PersistenceConfig {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setUsername("root");
 		driverManagerDataSource.setPassword("");
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/carteleraDB?serverTimezone=UTC");
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3307/carteleraDB?serverTimezone=UTC");
 		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return driverManagerDataSource;
 	}
@@ -57,7 +57,7 @@ public class PersistenceConfig {
 
 	private Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		properties.setProperty("hibernate.default_schema", "carteleraDB");
 		return properties;
