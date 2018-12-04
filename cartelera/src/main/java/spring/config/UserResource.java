@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import spring.config.services.UserService;
 import utils.UserMarshaller;
 
+import javax.xml.ws.Response;
+
 
 @RestController
 public class UserResource {
@@ -38,5 +40,15 @@ public class UserResource {
             return "No user for that email";
         }
 
+    }
+
+    @PostMapping("/users")
+    public String createUser(
+            @RequestBody String json
+    ) {
+        //Todo: handle sad case :(
+        User user = UserMarshaller.toObject(json);
+        service.save(user);
+        return "ok";
     }
 }
