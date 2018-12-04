@@ -30,9 +30,6 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "token")
-    private String token;
-
     @Column(name = "notification_type")
     private String notificationType;
 
@@ -93,10 +90,6 @@ public class User {
     public void setUpdated_at(Date updated_at) { this.updated_at = updated_at; }
 
     public List<Role> getRoles() { return roles; }
-
-    public String getToken() { return token; }
-
-    public void setToken(String token) { this.token = token; }
 
     public void setRoles(List<Role> roles) { this.roles = roles; }
 

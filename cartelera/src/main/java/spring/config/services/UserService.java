@@ -1,6 +1,7 @@
 package spring.config.services;
 
 import model.DAO.UserDAO;
+import model.Token;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,6 +16,8 @@ public class UserService {
     @Autowired
     private UserDAO userRepository;
 
+    @Transactional
+    public Token checkCredentials(String email, String password){ return this.userRepository.checkCredentials(email, password);}
 
     @Transactional
     public User getUserById(Integer id){

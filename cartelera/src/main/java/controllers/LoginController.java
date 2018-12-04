@@ -1,18 +1,23 @@
 package controllers;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import model.Token;
+import model.User;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import spring.config.services.UserService;
 
 @RestController
 public class LoginController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value="/login", method= RequestMethod.POST)
-    public String login(
-            @RequestParam(value = "name", defaultValue = "Bruno") String name
-    ){
-        return "Hello "+ name;
+    public Token login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password){
+        Token token = this.userService.checkCredentials(email, password);
+        return token;
     }
+
 }
