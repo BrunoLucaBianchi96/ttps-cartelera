@@ -29,7 +29,7 @@ public class TokenRepository extends GenericDAOHibernateJPA<Token> implements To
     @Override
     public Token getByUserId(int id){
         return (Token) this.getEntityManager().createNativeQuery("SELECT * FROM token WHERE user_id = :id ",Token.class)
-                .setParameter("user_id", id)
+                .setParameter("id", id)
                 .getSingleResult();
     }
 

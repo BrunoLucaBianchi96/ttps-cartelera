@@ -1,4 +1,4 @@
-package controllers;
+package spring.config.controllers;
 
 
 import model.Token;
