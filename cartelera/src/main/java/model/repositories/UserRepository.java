@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Repository
-@Transactional
+
 public class UserRepository extends GenericDAOHibernateJPA<User> implements UserDAO {
 
     public UserRepository(){}
