@@ -29,6 +29,7 @@ public class UserService {
         return this.userRepository.getUserByEmail(email);
     }
 
+    @Transactional
     public void save(User user) {
         this.userRepository.save(user);
     }

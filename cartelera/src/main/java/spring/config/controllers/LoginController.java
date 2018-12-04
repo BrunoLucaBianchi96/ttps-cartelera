@@ -15,7 +15,7 @@ public class LoginController {
     private UserService userService;
 
     @RequestMapping(value="/login", method= RequestMethod.POST)
-    public Token login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password){
+    public Token login(@RequestHeader(name = "email") String email, @RequestHeader(name = "password") String password){
         Token token = this.userService.checkCredentials(email, password);
         return token;
     }

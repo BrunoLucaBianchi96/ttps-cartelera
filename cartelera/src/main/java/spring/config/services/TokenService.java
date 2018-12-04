@@ -3,6 +3,7 @@ package spring.config.services;
 import model.DAO.TokenDAO;
 import model.DAO.UserDAO;
 import model.Token;
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,5 +26,14 @@ public class TokenService {
         token.setToken(newToken);
         this.tokenRepository.update(token);
         return token;
+    }
+
+    @Transactional
+    public Token createToken(User user) {
+        Token newToken = new Token();
+        newToken.setUser(user);
+        newToken.setToken("pretended hash");
+        this.tokenRepository.save(newToken);
+        return newToken;
     }
 }
