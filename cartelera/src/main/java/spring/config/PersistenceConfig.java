@@ -38,7 +38,7 @@ public class PersistenceConfig {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setUsername("root");
 		driverManagerDataSource.setPassword("");
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3307/carteleraDB?serverTimezone=UTC");
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/carteleraDB?serverTimezone=UTC");
 		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return driverManagerDataSource;
 	}

@@ -1,10 +1,10 @@
 package model;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 
@@ -33,11 +33,13 @@ public class User {
     @Column(name = "notification_type")
     private String notificationType;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @ManyToMany
     @JoinColumn(name = "role_id")
     private List<Role> roles;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @ManyToMany
     @JoinColumn(name = "billboard_id")
     private List<Billboard> billboards;
 
