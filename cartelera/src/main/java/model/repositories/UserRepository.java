@@ -25,9 +25,10 @@ public class UserRepository extends GenericDAOHibernateJPA<User> implements User
 
     @Override
     public User getUserByEmail(String email) {
-        return (User) this.getEntityManager().createNativeQuery("SELECT * FROM user WHERE email = :email ",User.class)
-                .setParameter("email", email)
-                .getSingleResult();
+        ArrayList<User> users = (ArrayList<User>) this.getEntityManager().createNativeQuery("SELECT * FROM user WHERE email = :email ",User.class)
+                    .setParameter("email", email)
+                    .getResultList();
+        return users.isEmpty() ? null : users.get(0);
     }
 
     @Override
