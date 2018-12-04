@@ -2,12 +2,14 @@ package utils;
 
 import model.User;
 import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 
-public class UserMarshaller  {
+public class UserMarshaller implements Marshaller<User> {
 
-    public static String toJson(User user){
+    @Override
+    public String toJson(User user){
         JSONObject json = new JSONObject();
         if(user!= null){
             json.put("id", user.getId());
@@ -19,8 +21,8 @@ public class UserMarshaller  {
         }
         return json.toString();
     }
-
-    public static User toObject(String json){
+    @Override
+    public User toObject(String json){
         JSONObject jsonObject = new JSONObject(json);
         User user = new User();
         user.setId(jsonObject.optInt("id"));

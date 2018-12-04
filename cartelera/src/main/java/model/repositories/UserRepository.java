@@ -39,10 +39,10 @@ public class UserRepository extends GenericDAOHibernateJPA<User> implements User
         .getResultList();
         if (!list.isEmpty()){ //Si la lista no esta vacía quiere decir que se encontro un usuario con las credenciales ingresadas
             User loggedUser = list.get(0);
-            try{
-                Token token = tokenService.getByUserId(loggedUser.getId());
-                return tokenService.updateToken(token);
-            }catch(Exception e){
+            ArrayList<Token> tokenList = tokenService.getByUserId(loggedUser.getId());
+            if (!tokenList.isEmpty()){
+                return tokenService.updateToken(tokenList.get(0));
+            }else{
                 return tokenService.createToken(loggedUser);
             }
         }

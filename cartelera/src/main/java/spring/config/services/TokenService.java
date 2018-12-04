@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 
 @Component("tokenService")
 public class TokenService {
@@ -16,7 +17,7 @@ public class TokenService {
     private TokenDAO tokenRepository;
 
     @Transactional
-    public Token getByUserId(int id) {
+    public ArrayList<Token> getByUserId(int id) {
         return this.tokenRepository.getByUserId(id);
     }
 

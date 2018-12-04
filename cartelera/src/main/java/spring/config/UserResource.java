@@ -16,6 +16,9 @@ public class UserResource {
     @Autowired
     private UserService service;
 
+
+    private UserMarshaller userMarshaller = new UserMarshaller();
+
     @GetMapping("/users/{id}")
     public User getUserById(
             @PathVariable("id") Integer id
@@ -35,7 +38,7 @@ public class UserResource {
     ) {
         User user = service.getUserByEmail(email);
         if(user!= null){
-            return UserMarshaller.toJson(user);
+            return userMarshaller.toJson(user);
         } else {
             return "No user for that email";
         }
@@ -47,7 +50,7 @@ public class UserResource {
             @RequestBody String json
     ) {
         //Todo: handle sad case :(
-        User user = UserMarshaller.toObject(json);
+        User user = userMarshaller.toObject(json);
         service.save(user);
         return "ok";
     }
