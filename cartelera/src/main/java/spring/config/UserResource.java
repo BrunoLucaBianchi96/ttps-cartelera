@@ -1,5 +1,6 @@
 package spring.config;
 
+import model.Billboard;
 import model.DAO.UserDAO;
 import model.User;
 import org.json.JSONArray;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import spring.config.services.TokenService;
 import spring.config.services.UserService;
+import utils.BillboardMarshaller;
+import utils.Marshaller;
 import utils.UserMarshaller;
 
 import javax.xml.ws.Response;
@@ -100,4 +103,46 @@ public class UserResource {
         }
     }
 
+
+    @PutMapping("users/{id}")
+    public String updateUser(
+            @RequestHeader(name = "token") String token,
+            @RequestHeader(name = "user_id") int user_id,
+            @RequestBody String json
+    ) {
+        if (this.tokenService.checkIfExists(token, user_id)) {
+
+            User user = userMarshaller.toObject(json);
+            try {
+                service.update(user);
+            } catch (Exception e){
+                return "Could not update user. " + e.getStackTrace();
+            }
+            return "ok";
+        } else {
+            return "401 - Token mismatch";
+        }
+    }
+
+    @GetMapping("/users/{id}/carteleras/")
+    public String getBillboardsForUser(
+            @RequestHeader(name = "token") String token,
+            @RequestHeader(name = "user_id") int user_id,
+            @PathVariable("id") Integer id
+    ) {
+        if (this.tokenService.checkIfExists(token, user_id)) {
+
+            List<Billboard> billboards = service.getBillboardsOfUser(id);
+            JSONArray arr = new JSONArray();
+            BillboardMarshaller marshaller = new BillboardMarshaller();
+            for( Billboard billboard: billboards){
+                JSONObject userJson = marshaller.toJson(billboard);
+                arr.put(userJson);
+            }
+            return arr.toString();
+        } else {
+            return "401 - Token mismatch";
+        }
+    }
 }
+
