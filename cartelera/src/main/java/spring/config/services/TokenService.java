@@ -22,6 +22,9 @@ public class TokenService {
     }
 
     @Transactional
+    public Boolean checkIfExists(String token, int id){ return this.tokenRepository.checkIfExists(token, id); }
+
+    @Transactional
     public Token updateToken(Token token) {
         String newToken = "pretendHash"; // TO-DO do this
         token.setToken(newToken);

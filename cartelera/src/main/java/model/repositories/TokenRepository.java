@@ -34,6 +34,15 @@ public class TokenRepository extends GenericDAOHibernateJPA<Token> implements To
     }
 
     @Override
+    public Boolean checkIfExists(String token, int id) {
+        ArrayList<Token> list = (ArrayList<Token>) this.getEntityManager().createNativeQuery("SELECT * FROM token WHERE token = :token AND user_id = :id ",Token.class)
+                .setParameter("id", id)
+                .setParameter("token", token)
+                .getResultList();
+        return !list.isEmpty();
+    }
+
+    @Override
     public Class<Token> getPersistentClass() {
         return Token.class;
     }

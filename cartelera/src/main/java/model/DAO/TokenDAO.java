@@ -8,4 +8,6 @@ public interface TokenDAO extends GenericDAO<Token> {
 
     ArrayList<Token> getAll();
     ArrayList<Token> getByUserId(int id);
+
+    Boolean checkIfExists(String token, int id);
 }
