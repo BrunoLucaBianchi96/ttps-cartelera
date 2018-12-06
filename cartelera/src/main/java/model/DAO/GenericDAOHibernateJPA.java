@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.util.List;
 
 @Transactional
 public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
@@ -21,7 +22,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     private EntityManager entityManager;
 
     @PersistenceContext
-    public void setEntityManager(EntityManager em){
+    public void setEntityManager(EntityManager em) {
         this.entityManager = em;
     }
 
@@ -32,7 +33,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     @Override
     @Transactional
     public T update(T entity) {
-        EntityManager em= this.getEntityManager();
+        EntityManager em = this.getEntityManager();
         entity = em.merge(entity);
         return entity;
     }
@@ -40,7 +41,7 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     @Override
     @Transactional
     public T save(T entity) {
-        EntityManager em= this.getEntityManager();
+        EntityManager em = this.getEntityManager();
         this.getEntityManager().persist(entity);
         return entity;
     }
@@ -55,8 +56,17 @@ public abstract class GenericDAOHibernateJPA<T> implements GenericDAO<T> {
     @Override
     @Transactional
     public T getById(Serializable id) {
-        EntityManager em=  this.getEntityManager();
+        EntityManager em = this.getEntityManager();
         T result = em.find(this.getPersistentClass(), id);
+        return result;
+    }
+
+    @Override
+    @Transactional
+    public List<T> getAll() {
+        EntityManager em = this.getEntityManager();
+        List<T> result = em.createQuery(("from "+ this.getPersistentClass().getName() ), this.getPersistentClass())
+                .getResultList();
         return result;
     }
 }

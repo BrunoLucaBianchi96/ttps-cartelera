@@ -8,13 +8,13 @@ public class TokenMarshaller implements Marshaller<Token> {
 
 
     @Override
-    public String toJson(Token object) {
+    public JSONObject toJson(Token object) {
         JSONObject json = new JSONObject();
         if(object != null){
             json.put("id", object.getId());
             json.put("name", object.getToken());
         }
-        return json.toString();
+        return json;
     }
 
     @Override

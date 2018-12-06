@@ -20,7 +20,7 @@ public class LoginController {
     @RequestMapping(value="/login", method= RequestMethod.POST)
     public String login(@RequestHeader(name = "email") String email, @RequestHeader(name = "password") String password){
         Token token = this.userService.checkCredentials(email, password);
-        return tokenMarshaller.toJson(token);
+        return tokenMarshaller.toJson(token).toString();
     }
 
 }

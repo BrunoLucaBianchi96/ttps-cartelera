@@ -14,6 +14,7 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class UserRepository extends GenericDAOHibernateJPA<User> implements UserDAO {
@@ -53,4 +54,10 @@ public class UserRepository extends GenericDAOHibernateJPA<User> implements User
     public Class<User> getPersistentClass() {
         return User.class;
     }
+
+//
+//    @Override
+//    public List<User> getAll(){
+//        return this.getEntityManager().createNativeQuery("SELECT * FROM user").getResultList();
+//    }
 }
