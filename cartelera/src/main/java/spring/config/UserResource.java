@@ -1,5 +1,6 @@
 package spring.config;
 
+import model.Billboard;
 import model.DAO.UserDAO;
 import model.User;
 import org.json.JSONArray;
@@ -7,6 +8,8 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import spring.config.services.UserService;
+import utils.BillboardMarshaller;
+import utils.Marshaller;
 import utils.UserMarshaller;
 
 import javax.xml.ws.Response;
@@ -32,7 +35,6 @@ public class UserResource {
         } else {
             return new User();
         }
-
     }
 
     @GetMapping("/users")
@@ -74,5 +76,33 @@ public class UserResource {
             return "Could not save user. " + e.getStackTrace();
         }
         return "ok";
+    }
+
+    @PutMapping("users/{id}")
+    public String updateUser(
+            @RequestBody String json
+    ) {
+        User user = userMarshaller.toObject(json);
+        try {
+            service.update(user);
+        } catch (Exception e){
+            return "Could not update user. " + e.getStackTrace();
+        }
+        return "ok";
+    }
+
+    @GetMapping("/users/{id}/carteleras/")
+    public String getBillboardsForUser(
+            @PathVariable("id") Integer id
+    ) {
+        List<Billboard> billboards = service.getBillboardsOfUser(id);
+        JSONArray arr = new JSONArray();
+        BillboardMarshaller marshaller = new BillboardMarshaller();
+        for( Billboard billboard: billboards){
+            JSONObject userJson = marshaller.toJson(billboard);
+            arr.put(userJson);
+        }
+        return arr.toString();
+
     }
 }

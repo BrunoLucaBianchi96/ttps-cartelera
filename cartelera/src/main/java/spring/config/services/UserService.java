@@ -1,5 +1,6 @@
 package spring.config.services;
 
+import model.Billboard;
 import model.DAO.UserDAO;
 import model.Token;
 import model.User;
@@ -41,5 +42,14 @@ public class UserService {
     @Transactional
     public List<User> getAll() {
         return this.userRepository.getAll();
+    }
+
+    @Transactional
+    public List<Billboard> getBillboardsOfUser(Integer id) {
+        return this.userRepository.getById(id).getBillboards();
+    }
+
+    public void update(User user) {
+        this.userRepository.update(user);
     }
 }
