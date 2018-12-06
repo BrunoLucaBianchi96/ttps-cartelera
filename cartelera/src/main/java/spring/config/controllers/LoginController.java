@@ -10,7 +10,7 @@ import spring.config.services.UserService;
 import utils.TokenMarshaller;
 
 @RestController
-public class LoginController {
+public class LoginController extends MainController {
 
     @Autowired
     private UserService userService;

@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Component("tokenService")
 public class TokenService {
@@ -26,7 +28,7 @@ public class TokenService {
 
     @Transactional
     public Token updateToken(Token token) {
-        String newToken = "pretendHash"; // TO-DO do this
+        String newToken = UUID.randomUUID().toString(); // TO-DO do this
         token.setToken(newToken);
         this.tokenRepository.update(token);
         return token;
@@ -36,7 +38,7 @@ public class TokenService {
     public Token createToken(User user) {
         Token newToken = new Token();
         newToken.setUser(user);
-        newToken.setToken("pretended hash");
+        newToken.setToken(UUID.randomUUID().toString());
         this.tokenRepository.save(newToken);
         return newToken;
     }

@@ -1,4 +1,4 @@
-package spring.config;
+package spring.config.controllers;
 
 import model.Billboard;
 import model.DAO.UserDAO;
@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @RestController
-public class UserResource {
+public class UserController extends MainController {
 
     @Autowired
     private UserService service;
@@ -35,16 +35,15 @@ public class UserResource {
             @RequestHeader(name = "user_id") int user_id,
             @PathVariable("id") Integer id
     ) {
-        if (this.tokenService.checkIfExists(token, user_id)) {
+        if (!this.tokenService.checkIfExists(token, user_id)) {
+            return "401 - Token mismatch";
+        }
             User user = service.getUserById(id);
             if (user != null) {
                 return userMarshaller.toJson(user).toString();
             } else {
                 return "No user for that id";
             }
-        } else {
-            return "401 - Token mismatch";
-        }
     }
 
     @GetMapping("/users")
@@ -53,16 +52,15 @@ public class UserResource {
             @RequestHeader(name = "user_id") int user_id,
             @RequestParam(name = "email") String email
     ) {
-        if (this.tokenService.checkIfExists(token, user_id)) {
+        if (!this.tokenService.checkIfExists(token, user_id)) {
+            return "401 - Token mismatch";
+        }
             User user = service.getUserByEmail(email);
             if (user != null) {
                 return userMarshaller.toJson(user).toString();
             } else {
                 return "No user for that email";
             }
-        } else {
-            return "401 - Token mismatch";
-        }
     }
 
     @GetMapping("/users/all")
@@ -70,7 +68,9 @@ public class UserResource {
             @RequestHeader(name = "token") String token,
             @RequestHeader(name = "user_id") int user_id
     ) {
-        if (this.tokenService.checkIfExists(token, user_id)) {
+        if (!this.tokenService.checkIfExists(token, user_id)) {
+            return "401 - Token mismatch";
+        }
             List<User> users = service.getAll();
             JSONArray arr = new JSONArray();
             for (User user : users) {
@@ -78,9 +78,6 @@ public class UserResource {
                 arr.put(userJson);
             }
             return arr.toString();
-        } else {
-            return "401 - Token mismatch";
-        }
     }
 
     @PostMapping("/users")
@@ -90,7 +87,9 @@ public class UserResource {
             @RequestBody String json
     ) {
         //Todo: handle sad case :(
-        if (this.tokenService.checkIfExists(token, user_id)) {
+        if (!this.tokenService.checkIfExists(token, user_id)) {
+            return "401 - Token mismatch";
+        }
             User user = userMarshaller.toObject(json);
             try {
                 service.save(user);
@@ -98,9 +97,6 @@ public class UserResource {
                 return "Could not save user. " + e.getStackTrace();
             }
             return "ok";
-        } else {
-            return "401 - Token mismatch";
-        }
     }
 
 
@@ -110,8 +106,9 @@ public class UserResource {
             @RequestHeader(name = "user_id") int user_id,
             @RequestBody String json
     ) {
-        if (this.tokenService.checkIfExists(token, user_id)) {
-
+        if (!this.tokenService.checkIfExists(token, user_id)) {
+            return "401 - Token mismatch";
+        }
             User user = userMarshaller.toObject(json);
             try {
                 service.update(user);
@@ -119,9 +116,6 @@ public class UserResource {
                 return "Could not update user. " + e.getStackTrace();
             }
             return "ok";
-        } else {
-            return "401 - Token mismatch";
-        }
     }
 
     @GetMapping("/users/{id}/carteleras/")
@@ -130,8 +124,9 @@ public class UserResource {
             @RequestHeader(name = "user_id") int user_id,
             @PathVariable("id") Integer id
     ) {
-        if (this.tokenService.checkIfExists(token, user_id)) {
-
+        if (!this.tokenService.checkIfExists(token, user_id)) {
+            return "401 - Token mismatch";
+        }
             List<Billboard> billboards = service.getBillboardsOfUser(id);
             JSONArray arr = new JSONArray();
             BillboardMarshaller marshaller = new BillboardMarshaller();
@@ -140,9 +135,6 @@ public class UserResource {
                 arr.put(userJson);
             }
             return arr.toString();
-        } else {
-            return "401 - Token mismatch";
-        }
     }
 }
 
