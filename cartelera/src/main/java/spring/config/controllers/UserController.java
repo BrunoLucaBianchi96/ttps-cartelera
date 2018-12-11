@@ -86,7 +86,7 @@ public class UserController extends MainController {
             @RequestHeader(name = "user_id") int user_id,
             @RequestBody String json
     ) {
-        //Todo: handle sad case :(
+
         if (!this.tokenService.checkIfExists(token, user_id)) {
             return "401 - Token mismatch";
         }
