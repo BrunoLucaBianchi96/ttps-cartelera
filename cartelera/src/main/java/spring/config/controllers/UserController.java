@@ -26,7 +26,6 @@ public class UserController extends MainController {
     @Autowired
     private TokenService tokenService;
 
-
     private UserMarshaller userMarshaller = new UserMarshaller();
 
     @GetMapping("/users/{id}")
