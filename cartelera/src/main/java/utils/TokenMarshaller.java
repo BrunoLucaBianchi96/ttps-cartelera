@@ -12,7 +12,7 @@ public class TokenMarshaller implements Marshaller<Token> {
         JSONObject json = new JSONObject();
         if(object != null){
             json.put("id", object.getId());
-            json.put("name", object.getToken());
+            json.put("token", object.getToken());
         }
         return json;
     }
@@ -22,7 +22,7 @@ public class TokenMarshaller implements Marshaller<Token> {
         JSONObject jsonObject = new JSONObject(json);
         Token token = new Token();
         token.setId(jsonObject.optInt("id"));
-        token.setToken(jsonObject.optString("name"));
+        token.setToken(jsonObject.optString("token"));
         return token;
     }
 }

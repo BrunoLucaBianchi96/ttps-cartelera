@@ -10,6 +10,7 @@ import spring.config.services.UserService;
 import utils.TokenMarshaller;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class LoginController extends MainController {
 
     @Autowired
