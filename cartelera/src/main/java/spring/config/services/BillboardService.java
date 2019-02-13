@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import utils.BillboardMarshaller;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Component("billboardService")
 public class BillboardService {
@@ -17,5 +18,10 @@ public class BillboardService {
     @Transactional
     public void save(Billboard billboard){
         this.billboardRepository.save(billboard);
+    }
+
+    @Transactional
+    public List<Billboard> getAllBillboards() {
+        return this.billboardRepository.getAll();
     }
 }

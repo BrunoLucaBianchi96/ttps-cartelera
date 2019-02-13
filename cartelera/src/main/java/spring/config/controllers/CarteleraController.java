@@ -2,13 +2,12 @@ package spring.config.controllers;
 
 import model.Billboard;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import spring.config.services.BillboardService;
 import spring.config.services.TokenService;
 import utils.BillboardMarshaller;
+
+import java.util.List;
 
 @RestController
 public class CarteleraController {
@@ -26,7 +25,7 @@ public class CarteleraController {
             @RequestHeader(name = "token") String token,
             @RequestHeader(name = "user_id") int user_id,
             @RequestBody String json
-    ){
+    ) {
         if (!this.tokenService.checkIfExists(token, user_id)) {
             return "401 - Token mismatch";
         }
@@ -35,4 +34,11 @@ public class CarteleraController {
         billboardService.save(billboard);
         return "ok";
     }
+
+    @GetMapping("/cartelera")
+    public String getAllBillboards() {
+        List<Billboard> billboardList = billboardService.getAllBillboards();
+        return billboardMarshaller.toJson(billboardList).toString();
+    }
+
 }

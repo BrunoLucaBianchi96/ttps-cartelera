@@ -1,9 +1,12 @@
 package utils;
 
 import model.Billboard;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class BillboardMarshaller implements Marshaller<Billboard>  {
     @Override
@@ -14,6 +17,15 @@ public class BillboardMarshaller implements Marshaller<Billboard>  {
         jsonObject.put("name", object.getName());
         jsonObject.put("id", object.getId());
         return jsonObject;
+    }
+
+
+    public JSONArray toJson(List<Billboard> list) {
+        JSONArray result = new JSONArray();
+        for (Billboard each : list){
+            result.put(this.toJson(each));
+        }
+        return result;
     }
 
     @Override
