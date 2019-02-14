@@ -13,7 +13,7 @@ public class TokenMarshaller implements Marshaller<Token> {
     public JSONObject toJson(Token object) {
         JSONObject json = new JSONObject();
         if(object != null){
-            json.put("id", object.getId());
+            json.put("id", object.getUser().getId());
             json.put("token", object.getToken());
             json.put("roles", object.getUser().getRoles().stream()
                     .map(a -> String.valueOf(a.getName()))

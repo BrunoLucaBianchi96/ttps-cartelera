@@ -33,7 +33,7 @@ public class BillboardMarshaller implements Marshaller<Billboard>  {
         JSONObject jsonObject = new JSONObject(json);
         Billboard billboard = new Billboard();
         billboard.setId(jsonObject.optInt("id"));
-        billboard.setName(jsonObject.optString("Name"));
+        billboard.setName(jsonObject.optString("name"));
         Integer createdAt = jsonObject.optInt("createdAt");
         Integer updatedAt = jsonObject.optInt("updatedAt");
         billboard.setCreated_at(createdAt == null ? new Date() : new Date(createdAt));

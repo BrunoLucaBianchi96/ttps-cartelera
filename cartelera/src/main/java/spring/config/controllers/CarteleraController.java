@@ -10,6 +10,7 @@ import utils.BillboardMarshaller;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CarteleraController {
 
     @Autowired
@@ -32,7 +33,7 @@ public class CarteleraController {
 
         Billboard billboard = this.billboardMarshaller.toObject(json);
         billboardService.save(billboard);
-        return "ok";
+        return json;
     }
 
     @GetMapping("/cartelera")
